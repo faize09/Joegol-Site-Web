@@ -1,288 +1,390 @@
 <?php include "partiel/entete.php";
 ?>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-body {
-    background: #f5f5f5;
-}
-
-.hero {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 80px 10%;
-    gap: 50px;
-}
-
-/* LEFT */
-
-.hero-left {
-    flex: 1;
-}
-
-.hero-left h1 {
-    font-size: 78px;
-    line-height: 1.1;
-    font-weight: 900;
-    color: #000;
-    margin-bottom: 40px;
-}
-
-.hero-left p {
-    font-size: 22px;
-    line-height: 1.7;
-    color: #666;
-    max-width: 700px;
-    margin-bottom: 40px;
-}
-
-.hero-left button {
-    padding: 18px 35px;
-    border: 2px solid #000;
-    border-color: #000;
-    background: #fff;
-    color: black;
-    font-size: 24px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: bold;
-}
-
-.hero-left button:hover {
-    transform: translateY(-5px);
-    background: #e6b000;
-}
-
-.hero_2 {
-    width: 100%;
-    min-height: 30vh;
-    justify-content: space-between;
-    align-items: center;
-    padding: 80px 10%;
-    gap: 50px;
-    background: #ffaa00;
-    text-align: center;
-}
-
-.hero_3 {
-    width: 100%;
-    min-height: 30vh;
-    padding: 80px 10%;
-    gap: 50px;
-    background: #fff;
-    align-content: center;
-    text-align: center;
-}
-
-.hero_7 {
-    width: 100%;
-    min-height: 30vh;
-    padding: 80px 10%;
-    gap: 50px;
-    background: #fff;
-    align-content: center;
-    text-align: center;
-}
-
-
-.container {
-    min-height: 30vh;
-    padding: 50px 10%;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.box {
-    width: 350px;
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.08);
-}
-
-.box h2 {
-    margin-bottom: 15px;
-    font-size: 28px;
-    text-align: center;
-}
-
-.box p {
-    color: #666;
-    line-height: 1.7;
-    font-size: 18px;
-    text-align: center;
-}
-
-.hero_6 button {
-    padding: 18px 35px;
-    border: 2px solid #000;
-    border-color: #000;
-    background: #fff;
-    color: black;
-    font-size: 24px;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: bold;
-}
-
-.hero_6 button:hover {
-    transform: translateY(-5px);
-    background: #e6b000;
-}
-
-
-footer {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    padding: 60px 10%;
-    color: white;
-    margin-top: 50px;
-}
-
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
     }
 
-    50% {
-        background-position: 100% 50%;
+    body {
+        background: #f5f5f5;
+        overflow-x: hidden;
     }
 
-    100% {
-        background-position: 0% 50%;
+    img {
+        max-width: 100%;
+        height: auto;
     }
-}
 
-.footer-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-}
+    .hero {
+        width: 100%;
+        min-height: calc(100vh - 92px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: clamp(48px, 8vw, 80px) clamp(18px, 10vw, 10%);
+        gap: 50px;
+    }
 
-.footer-col h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-    padding-bottom: 10px;
-    display: inline-block;
-}
+    /* LEFT */
 
-.footer-col ul {
-    list-style: none;
-    padding: 0;
-}
+    .hero-left {
+        flex: 1;
+    }
 
-.footer-col ul li {
-    margin-bottom: 12px;
-}
+    .hero-left h1 {
+        font-size: clamp(38px, 8vw, 78px);
+        line-height: 1.1;
+        font-weight: 900;
+        color: #000;
+        margin-bottom: clamp(24px, 5vw, 40px);
+    }
 
-.footer-col ul li a {
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-}
+    .hero-left p {
+        font-size: clamp(16px, 3vw, 22px);
+        line-height: 1.7;
+        color: #666;
+        max-width: 700px;
+        margin-bottom: clamp(24px, 5vw, 40px);
+    }
 
-.footer-col ul li a:hover {
-    padding-left: 10px;
-    opacity: 0.8;
-}
+    .hero-left button {
+        padding: 16px 24px;
+        border: 2px solid #000;
+        border-color: #000;
+        background: #fff;
+        color: black;
+        font-size: clamp(16px, 2.5vw, 24px);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-weight: bold;
+        margin: 0 10px 12px 0;
+    }
 
-.footer-bottom {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 14px;
-}
+    .hero-left button:hover {
+        transform: translateY(-5px);
+        background: #e6b000;
+    }
 
-.features-section {
-    background: #f5f7fb;
-}
+    .hero_2 {
+        width: 100%;
+        min-height: 30vh;
+        justify-content: space-between;
+        align-items: center;
+        padding: clamp(42px, 8vw, 80px) clamp(18px, 10vw, 10%);
+        gap: 50px;
+        background: #ffaa00;
+        text-align: center;
+    }
 
-.features-section .container {
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1fr 350px 1fr;
-    gap: 30px;
-    align-items: center;
-}
+    .hero_3 {
+        width: 100%;
+        min-height: 30vh;
+        padding: clamp(42px, 8vw, 80px) clamp(18px, 10vw, 10%);
+        gap: 50px;
+        background: #fff;
+        align-content: center;
+        text-align: center;
+    }
 
-.features-section .left,
-.features-section .right {
-    display: flex;
-    flex-direction: column;
-    gap: 250px;
-}
+    .hero_7 {
+        width: 100%;
+        min-height: 30vh;
+        padding: clamp(42px, 8vw, 80px) clamp(18px, 10vw, 10%);
+        gap: 50px;
+        background: #fff;
+        align-content: center;
+        text-align: center;
+    }
 
-.features-section .card {
-    background: #fff;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    position: relative;
-    transition: 0.3s;
-}
 
-.features-section .card:hover {
-    transform: translateY(-5px);
-}
+    .container {
+        min-height: 30vh;
+        width: 100%;
+        padding: clamp(32px, 6vw, 50px) clamp(16px, 10vw, 10%);
+        display: flex;
+        justify-content: center;
+        gap: 18px;
+        flex-wrap: wrap;
+    }
 
-.features-section .card i {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 28px;
-    color: #2563eb;
-}
+    .box {
+        width: min(350px, 100%);
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 15px 15px rgba(0, 0, 0, 0.08);
+    }
 
-.features-section .card h3 {
-    margin-bottom: 15px;
-    color: #111827;
-}
+    .box h2 {
+        margin-bottom: 15px;
+        font-size: clamp(22px, 4vw, 28px);
+        text-align: center;
+    }
 
-.features-section .card p {
-    color: #555;
-    line-height: 1.6;
-}
+    .box p {
+        color: #666;
+        line-height: 1.7;
+        font-size: clamp(15px, 2.5vw, 18px);
+        text-align: center;
+    }
 
-.features-section .phone {
-    display: flex;
-    justify-content: center;
-}
+    .hero_6 button {
+        padding: 18px 35px;
+        border: 2px solid #000;
+        border-color: #000;
+        background: #fff;
+        color: black;
+        font-size: 24px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-weight: bold;
+    }
 
-.features-section .phone img {
-    width: 380px;
-    border-radius: 30px;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
-}
+    .hero_6 button:hover {
+        transform: translateY(-5px);
+        background: #e6b000;
+    }
 
-@media(max-width:900px) {
+
+    footer {
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        padding: clamp(40px, 7vw, 60px) clamp(18px, 10vw, 10%);
+        color: white;
+        margin-top: 50px;
+    }
+
+    @keyframes gradientBG {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    .footer-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+
+    .footer-col h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+
+    .footer-col ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 12px;
+    }
+
+    .footer-col ul li a {
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .footer-col ul li a:hover {
+        padding-left: 10px;
+        opacity: 0.8;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: 14px;
+    }
+
+    .features-section {
+        background: #f5f7fb;
+    }
 
     .features-section .container {
-        grid-template-columns: 1fr;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 350px 1fr;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .features-section .left,
+    .features-section .right {
+        display: flex;
+        flex-direction: column;
+        gap: 250px;
+    }
+
+    .features-section .card {
+        background: #fff;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        transition: 0.3s;
+    }
+
+    .features-section .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .features-section .card i {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 28px;
+        color: #2563eb;
+    }
+
+    .features-section .card h3 {
+        margin-bottom: 15px;
+        color: #111827;
+    }
+
+    .features-section .card p {
+        color: #555;
+        line-height: 1.6;
     }
 
     .features-section .phone {
-        order: -1;
+        display: flex;
+        justify-content: center;
     }
 
-}
+    .features-section .phone img {
+        width: 380px;
+        max-width: min(380px, 82vw);
+        border-radius: 30px;
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+    }
+
+    .hero_4,
+    .hero_6,
+    .hero_8,
+    .hero_9 {
+        padding: clamp(42px, 8vw, 80px) clamp(18px, 10vw, 10%);
+        text-align: center;
+    }
+
+    .hero_3 h1,
+    .hero_4 h1,
+    .hero_6 h1,
+    .hero_7 h1,
+    .hero_9 h1 {
+        font-size: clamp(32px, 6vw, 60px) !important;
+        line-height: 1.15;
+    }
+
+    .hero_2 p,
+    .hero_3 p,
+    .hero_4 p,
+    .hero_6 p,
+    .hero_7 p,
+    .hero_9 p {
+        font-size: clamp(15px, 2.5vw, 18px);
+        line-height: 1.7;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media(max-width:900px) {
+
+        .features-section .container {
+            grid-template-columns: 1fr;
+        }
+
+        .features-section .phone {
+            order: -1;
+        }
+
+        .features-section .left,
+        .features-section .right {
+            gap: 24px;
+        }
+
+        .footer-container {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media(max-width:768px) {
+        .hero {
+            min-height: auto;
+            text-align: center;
+        }
+
+        .hero-left {
+            width: 100%;
+        }
+
+        .hero-left button {
+            width: min(100%, 320px);
+            margin-right: 0;
+        }
+
+        .features-section .card {
+            text-align: left;
+        }
+    }
+
+    @media(max-width:480px) {
+        .container {
+            padding-left: 14px;
+            padding-right: 14px;
+        }
+
+        .box {
+            padding: 18px;
+        }
+
+        .hero_9 center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+
+    /* Scroll Animation Styles */
+    .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease-out;
+    }
+
+    .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Staggered delay for children if needed */
+    .reveal.active>* {
+        animation: fadeIn 0.5s ease-out forwards;
+    }
 </style>
 
-<section class="hero">
+<section class="hero reveal">
 
     <div class="hero-left">
 
@@ -306,18 +408,18 @@ footer {
     </div>
 </section>
 
-<section class="hero_2">
+<section class="hero_2 reveal">
     <p>La satisfaction de nos clients est notre priorité <span style="color: #fff;">★★★★★</span> Note moyenne de
         4.8/5 sur Google My Business basée sur plus de 1000 avis. </p>
 </section>
 
-<section class="hero_3">
+<section class="hero_3 reveal">
     <h1 style="font-size: 60px; text-align: center;">Comment ça marche ?</h1>
     <p style="text-align: center;">Une solution logistique pensée pour offrir un traitement rapide, précis et fiable de
         chacun de vos colis.</p>
 </section>
 
-<section>
+<section class="reveal">
     <div class="container">
 
         <div class="box">
@@ -354,14 +456,14 @@ footer {
     </div>
 </section>
 
-<section class="hero_4">
+<section class="hero_4 reveal">
     <h1 style="font-size: 60px; text-align: center;">Pourquoi nous ?</h1>
     <p style="text-align: center;">Chaque erreur rencontrée à nos débuts est devenue une leçon précieuse. Grâce à cette
         expérience, notre équipe s’est renforcée pour vous garantir un service plus sûr, plus fiable et plus efficace.
     </p>
 </section>
 
-<section class="features-section">
+<section class="features-section reveal">
 
     <div class="container">
 
@@ -422,7 +524,8 @@ footer {
     </div>
 
 </section>
-<section class="hero_6">
+
+<section class="hero_6 reveal">
     <h1 style="font-size: 60px; text-align: center;">Nos clients aiment Joegol</h1>
     <p style="text-align: center;">Confier vos marchandises à un transitaire est toujours un acte de foi. Mais qui mieux
         que nos clients pour vous
@@ -430,13 +533,13 @@ footer {
     <center><button>Voir tous les avis</button></center>
 </section>
 
-<section class="hero_7">
+<section class="hero_7 reveal">
     <h1 style="font-size: 60px; text-align: center;">Nos dernières news</h1>
     <p style="text-align: center;">Confier vos marchandises à un transitaire est toujours un acte de foi. Mais qui mieux
         que nos clients pour vous rassurer de la qualité de notre service? </p>
 </section>
 
-<section class="hero_8">
+<section class="hero_8 reveal">
     <div class="container">
         <div class="box">
             <h2 style="text-align: left;">Tutoriels</h2>
@@ -462,6 +565,15 @@ footer {
         </div>
     </div>
 
+</section>
+
+<section class="hero_9 reveal">
+    <h1 style="font-size: 60px; text-align: center;">Téléchargez l'application Joegol</h1>
+    <p style="text-align: center;">Enregistrez et suivez vos colis plus facilement, recevez les alertes de mouvement de
+        chaque colis et discutez avec le service client en temps réel en tout temps. </p>
+    <center><img src="images/google-play-btn.png" style="width: 200px;" alt="">
+        <img src="images/app-store.png" style="width: 200px; position: relative; top: 6px;" alt="">
+    </center>
 </section>
 
 
@@ -498,6 +610,23 @@ footer {
     </div>
 </footer>
 
+<script>
+    const observerOptions = {
+        threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach((section) => {
+        observer.observe(section);
+    });
+</script>
 </body>
 
 </html>

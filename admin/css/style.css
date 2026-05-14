@@ -1,0 +1,41 @@
+ body {
+     display: flex;
+     min-height: 100vh;
+ }
+
+ .sidebar {
+     width: 250px;
+     background: #343a40;
+     color: #fff;
+     padding: 20px;
+ }
+
+ .sidebar a {
+     color: #adb5bd;
+     text-decoration: none;
+     display: block;
+     padding: 10px;
+     border-radius: 5px;
+ }
+
+ .sidebar a:hover,
+ .sidebar a.active {
+     background: #495057;
+     color: #fff;
+ }
+
+ .content {
+     flex: 1;
+     padding: 20px;
+ }
+
+ .stats-card {
+     background: #f8f9fa;
+     border-radius: 10px;
+     padding: 20px;
+     text-align: center;
+ }
+
+ #page-blog {
+     display: none;
+ }
