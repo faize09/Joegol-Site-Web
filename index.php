@@ -23,7 +23,7 @@
         min-height: calc(100vh - 92px);
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         padding: clamp(48px, 8vw, 80px) clamp(18px, 10vw, 10%);
         gap: 50px;
     }
@@ -32,12 +32,49 @@
 
     .hero-left {
         flex: 1;
+        min-width: 0;
     }
 
-    .hero-left h1 {
+    .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .hero-right {
+        flex: 0 1 52%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        align-self: flex-start;
+        position: relative;
+        min-width: 280px;
+        overflow: visible;
+    }
+
+    .hero-right img {
+        width: clamp(320px, 42vw, 720px);
+        max-width: 100%;
+        height: auto;
+        max-height: min(78vh, 720px);
+        object-fit: contain;
+        object-position: top right;
+        display: block;
+        transition: transform 0.15s ease, filter 0.3s ease;
+        transform-origin: center;
+        will-change: transform;
+    }
+
+    .hero-right img:hover {
+        filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.18));
+    }
+
+    .hero-left h2 {
         font-size: clamp(38px, 8vw, 78px);
         line-height: 1.1;
-        font-weight: 900;
+        font-weight: 600;
         color: #000;
         margin-bottom: clamp(24px, 5vw, 40px);
     }
@@ -56,12 +93,19 @@
         border-color: #000;
         background: #fff;
         color: black;
-        font-size: clamp(16px, 2.5vw, 24px);
+        font-size: clamp(6px, 2.5vw, 14px);
         border-radius: 12px;
         cursor: pointer;
         transition: 0.3s;
         font-weight: bold;
-        margin: 0 10px 12px 0;
+        margin: 0;
+        min-width: 150px;
+        min-height: 68px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        line-height: 1;
     }
 
     .hero-left button:hover {
@@ -331,6 +375,8 @@
     @media(max-width:768px) {
         .hero {
             min-height: auto;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
         }
 
@@ -338,9 +384,27 @@
             width: 100%;
         }
 
+        .hero-actions {
+            justify-content: center;
+            width: 100%;
+        }
+
+        .hero-right {
+            width: 100%;
+            align-self: center;
+            justify-content: center;
+            align-items: center;
+            min-width: 0;
+        }
+
+        .hero-right img {
+            width: clamp(260px, 72vw, 460px);
+            max-height: none;
+            object-position: center;
+        }
+
         .hero-left button {
             width: min(100%, 320px);
-            margin-right: 0;
         }
 
         .features-section .card {
@@ -356,6 +420,10 @@
 
         .box {
             padding: 18px;
+        }
+
+        .hero-right img {
+            width: min(100%, 340px);
         }
 
         .hero_9 center {
@@ -388,12 +456,12 @@
 
     <div class="hero-left">
 
-        <h1>
+        <h2>
             Achetez à <br>
             l’international, <br>
             réceptionnez chez <br>
             vous.
-        </h1>
+        </h2>
 
         <p>
             Avez vous besoin de commander un article de la Chine,
@@ -402,9 +470,14 @@
             et recevez vos articles dans votre pays !
         </p>
 
-        <button><i class="fas fa-shopping-cart"></i>Commander</button>
-        <button><i class="fas fa-shipping-fast"></i>Transit</button>
-        <button><i class="fas fa-store"></i>Marketplace</button>
+        <div class="hero-actions">
+            <button><i class="fas fa-shopping-cart"></i>Commander</button>
+            <button><i class="fas fa-shipping-fast"></i>Transit</button>
+            <button><i class="fas fa-store"></i>Marketplace</button>
+        </div>
+    </div>
+    <div class="hero-right">
+        <img src="images/image_plusieurs_logo.png" alt="">
     </div>
 </section>
 
@@ -626,6 +699,27 @@
     document.querySelectorAll('.reveal').forEach((section) => {
         observer.observe(section);
     });
+
+    const heroImage = document.querySelector('.hero-right img');
+
+    if (heroImage && window.matchMedia('(hover: hover)').matches) {
+        heroImage.addEventListener('mousemove', (event) => {
+            const rect = heroImage.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((centerY - y) / centerY) * 8;
+            const rotateY = ((x - centerX) / centerX) * 8;
+
+            heroImage.style.transform =
+                `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.04)`;
+        });
+
+        heroImage.addEventListener('mouseleave', () => {
+            heroImage.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
+        });
+    }
 </script>
 </body>
 
