@@ -134,6 +134,22 @@
             gap: 10px;
         }
 
+        .menu-toggle .fa-bars {
+            display: inline;
+        }
+
+        .menu-toggle .fa-times {
+            display: none;
+        }
+
+        .menu-toggle.active .fa-bars {
+            display: none;
+        }
+
+        .menu-toggle.active .fa-times {
+            display: inline;
+        }
+
         .header-actions {
             display: flex;
             align-items: center;
@@ -746,7 +762,8 @@
             <button class="suivi-btn"><i class="fa-duotone fa-solid fa-magnifying-glass"></i><b> Suivi</b></button>
         </div>
 
-        <button id="menuToggle" class="menu-toggle"><i class="fas fa-bars"></i> Menu</button>
+        <button id="menuToggle" class="menu-toggle"><i class="fas fa-bars"></i><i class="fas fa-times"></i>
+            Menu</button>
     </header>
     <section class="hero reveal">
 
@@ -1038,12 +1055,14 @@
         if (menuToggle && pageHeader) {
             menuToggle.addEventListener('click', () => {
                 pageHeader.classList.toggle('menu-open');
+                menuToggle.classList.toggle('active');
             });
 
             document.querySelectorAll('nav div, .header-actions a, .header-actions button').forEach((el) => {
                 el.addEventListener('click', () => {
                     if (window.innerWidth <= 768) {
                         pageHeader.classList.remove('menu-open');
+                        menuToggle.classList.remove('active');
                     }
                 });
             });
