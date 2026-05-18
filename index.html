@@ -932,6 +932,45 @@
         &copy; 2026 Joegol - Tous droits réservés.
     </div>
 </footer>
+  <script>
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -80px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach((section) => {
+        observer.observe(section);
+    });
+
+    const heroImage = document.querySelector('.hero-right img');
+
+    if (heroImage && window.matchMedia('(hover: hover)').matches) {
+        heroImage.addEventListener('mousemove', (event) => {
+            const rect = heroImage.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((centerY - y) / centerY) * 8;
+            const rotateY = ((x - centerX) / centerX) * 8;
+
+            heroImage.style.transform =
+                `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.04)`;
+        });
+
+        heroImage.addEventListener('mouseleave', () => {
+            heroImage.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
+        });
+    }
+</script>
 </body>
 
 </html>
